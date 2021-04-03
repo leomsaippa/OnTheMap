@@ -75,7 +75,7 @@ class UdacityApiCall: NSObject {
     }
     
     class func getLoggedInUserProfile(completion: @escaping (Bool, Error?) -> Void) {
-        RequestHelper.taskForGETRequest(url: Endpoints.getLoggedInUserProfile.url, responseType: User.self) { (response, error) in
+        RequestHelper.taskForGETRequest(url: Endpoints.getLoggedInUserProfile.url, isStudentCall: false, responseType: User.self) { (response, error) in
             if let response = response {
                 print("First Name : \(response.firstName) && Last Name : \(response.lastName) && Full Name: \(response.nickname)")
                 Auth.firstName = response.firstName
@@ -87,4 +87,18 @@ class UdacityApiCall: NSObject {
             }
         }
     }
+    
+    class func getStudentLocations(completion: @escaping ([StudentInfo]?, Error?) -> Void) {
+        RequestHelper.taskForGETRequest(url: Endpoints.getStudentLocations.url,isStudentCall: true, responseType: StudentLocation.self) { (response, error) in
+            if let response = response {
+                completion(response.results, nil)
+                print("Succes")
+                print(response.results.count)
+            } else {
+                completion([], error)
+                print("error")
+            }
+        }
+    }
+    
 }
