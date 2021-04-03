@@ -18,6 +18,7 @@
 		A3E259B92618077F00D77F5B /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E259B82618077F00D77F5B /* LoginResponse.swift */; };
 		A3E259BC261807FD00D77F5B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E259BB261807FD00D77F5B /* User.swift */; };
 		A3E259BF2618129A00D77F5B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E259BE2618129A00D77F5B /* Session.swift */; };
+		A3E259C42618D05D00D77F5B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E259C32618D05D00D77F5B /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A3E259B82618077F00D77F5B /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		A3E259BB261807FD00D77F5B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A3E259BE2618129A00D77F5B /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		A3E259C32618D05D00D77F5B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				A3068A1C26169DDF00BC0476 /* AppDelegate.swift */,
 				A3068A2026169DDF00BC0476 /* ViewController.swift */,
+				A3E259C32618D05D00D77F5B /* MapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				A3068A2126169DDF00BC0476 /* ViewController.swift in Sources */,
 				A3E259B92618077F00D77F5B /* LoginResponse.swift in Sources */,
 				A3068A1D26169DDF00BC0476 /* AppDelegate.swift in Sources */,
+				A3E259C42618D05D00D77F5B /* MapViewController.swift in Sources */,
 				A3E259BF2618129A00D77F5B /* Session.swift in Sources */,
 				A3E259B62618058E00D77F5B /* LoginRequest.swift in Sources */,
 				A3E259B22618023000D77F5B /* RequestHelper.swift in Sources */,

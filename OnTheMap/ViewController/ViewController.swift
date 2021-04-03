@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         if success {
             DispatchQueue.main.async {
                 print("SUCCESS")
+                self.performSegue(withIdentifier: "loginClick", sender: nil)
                 
             }
         } else {
