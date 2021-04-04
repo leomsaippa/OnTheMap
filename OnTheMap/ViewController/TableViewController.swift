@@ -26,6 +26,8 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let student = students[indexPath.row]
+        openLinkClicked(student.mediaURL ?? "")
+
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
