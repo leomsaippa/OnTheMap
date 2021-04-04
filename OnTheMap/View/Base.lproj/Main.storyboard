@@ -17,19 +17,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Onm-gm-mhz">
-                                <rect key="frame" x="140" y="378" width="160" height="34"/>
+                                <rect key="frame" x="115" y="389" width="160" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="4j3-Cq-bap">
-                                <rect key="frame" x="140" y="431" width="160" height="34"/>
+                                <rect key="frame" x="115" y="431" width="160" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gty-qB-oNP">
-                                <rect key="frame" x="200" y="489" width="42" height="30"/>
+                                <rect key="frame" x="174" y="489" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log In"/>
                                 <connections>
@@ -37,22 +37,22 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Don`t have an account?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7A8-4e-3Pc">
-                                <rect key="frame" x="135" y="527" width="171" height="34"/>
+                                <rect key="frame" x="110" y="527" width="171" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="RpM-Yk-RSK">
+                                <rect key="frame" x="135" y="195" width="121" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dM-6V-hrP">
-                                <rect key="frame" x="153" y="579" width="147" height="30"/>
+                                <rect key="frame" x="122" y="569" width="147" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign up"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="udacityLogo" translatesAutoresizingMaskIntoConstraints="NO" id="RpM-Yk-RSK">
-                                <rect key="frame" x="166" y="250" width="121" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="-214.49275362318843" y="77.678571428571431"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="Lfh-Pc-aLx">
             <objects>
                 <tableViewController id="fBt-rf-S3u" customClass="TableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -92,7 +92,13 @@
                             <outlet property="delegate" destination="fBt-rf-S3u" id="XVB-Sm-SvZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="lpK-nt-0IL"/>
+                    <navigationItem key="navigationItem" id="pkj-OP-mXW">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="yr0-bE-RgM"/>
+                        <rightBarButtonItems>
+                            <barButtonItem image="icon_refresh" id="Aeb-FX-f9Y"/>
+                            <barButtonItem image="icon_addpin" id="OW9-um-Re7"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BA9-Wb-TBw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -132,7 +138,13 @@
                         <viewLayoutGuide key="safeArea" id="kE4-IP-oOb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YbD-19-IWh"/>
+                    <navigationItem key="navigationItem" id="YbD-19-IWh">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Vv7-0X-GaQ"/>
+                        <rightBarButtonItems>
+                            <barButtonItem image="icon_refresh" id="Awx-Kp-khh"/>
+                            <barButtonItem image="icon_addpin" id="PKH-AU-y08"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="mEn-yN-XVq" id="td8-4U-NI0"/>
                     </connections>
@@ -162,7 +174,13 @@
         <scene sceneID="UJa-ex-SNZ">
             <objects>
                 <tabBarController id="IKK-Kp-aeT" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="rDC-l3-ZWU"/>
+                    <navigationItem key="navigationItem" id="rDC-l3-ZWU">
+                        <rightBarButtonItems>
+                            <barButtonItem image="icon_refresh" id="nV3-6K-ESr"/>
+                            <barButtonItem title="Logout" id="P4p-Bb-U3f"/>
+                            <barButtonItem image="icon_addpin" id="E15-f9-q38"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nfp-FW-UvC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -179,7 +197,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="udacityLogo" width="62" height="62"/>
+        <image name="icon_addpin" width="24" height="24"/>
+        <image name="icon_refresh" width="24" height="24"/>
+        <image name="logo-u" width="62" height="62"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
