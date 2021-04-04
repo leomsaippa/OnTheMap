@@ -93,7 +93,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="pkj-OP-mXW">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="yr0-bE-RgM"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="yr0-bE-RgM">
+                            <connections>
+                                <action selector="logout:" destination="fBt-rf-S3u" id="Rar-wm-EPb"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="icon_refresh" id="Aeb-FX-f9Y"/>
                             <barButtonItem image="icon_addpin" id="OW9-um-Re7"/>
@@ -139,7 +143,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="YbD-19-IWh">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Vv7-0X-GaQ"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Vv7-0X-GaQ">
+                            <connections>
+                                <action selector="logout:" destination="p1e-Bc-4Mb" id="LwF-11-6CS"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="icon_refresh" id="Awx-Kp-khh"/>
                             <barButtonItem image="icon_addpin" id="PKH-AU-y08"/>

@@ -24,6 +24,14 @@ class TableViewController: UITableViewController {
         getStudentsList()
     }
     
+    @IBAction func logout(_ sender: UIBarButtonItem) {
+        UdacityApiCall.logout {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let student = students[indexPath.row]
         openLinkClicked(student.mediaURL ?? "")

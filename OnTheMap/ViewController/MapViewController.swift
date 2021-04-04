@@ -21,6 +21,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         getInfo()
     }
     
+    @IBAction func logout(_ sender: UIBarButtonItem) {
+        UdacityApiCall.logout {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseId = "pin"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
@@ -72,4 +80,5 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
+
 }

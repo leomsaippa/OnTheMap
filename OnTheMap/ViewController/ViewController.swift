@@ -21,8 +21,8 @@ class ViewController: UIViewController {
 
 
     @IBAction func onLoginBtnClicked(_ sender: Any) {
-        //UdacityApiCall.login(email: self.emailField.text ?? "", password: self.passwordField.text ?? "", completion: handleLoginResponse(success:error:))
-        UdacityApiCall.login(email: "leonardomsaippa@gmail.com", password: "udacity1331", completion: handleLoginResponse(success:error:))
+        UdacityApiCall.login(email: self.emailField.text ?? "", password: self.passwordField.text ?? "", completion: handleLoginResponse(success:error:))
+
     }
     
     func handleLoginResponse(success: Bool, error: Error?) {
