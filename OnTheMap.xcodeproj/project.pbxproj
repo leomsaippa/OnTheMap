@@ -14,6 +14,7 @@
 		A3068A2926169DE000BC0476 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3068A2726169DE000BC0476 /* LaunchScreen.storyboard */; };
 		A3AFEFFC2619136F007A1745 /* StudentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFEFFB2619136F007A1745 /* StudentInfo.swift */; };
 		A3AFEFFF261913F6007A1745 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFEFFE261913F6007A1745 /* StudentLocation.swift */; };
+		A3AFF00526194053007A1745 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFF00426194053007A1745 /* TableViewController.swift */; };
 		A3E259AE2618019500D77F5B /* UdacityApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E259AD2618019500D77F5B /* UdacityApiCall.swift */; };
 		A3E259B22618023000D77F5B /* RequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E259B12618023000D77F5B /* RequestHelper.swift */; };
 		A3E259B62618058E00D77F5B /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E259B52618058E00D77F5B /* LoginRequest.swift */; };
@@ -33,6 +34,7 @@
 		A3068A2A26169DE000BC0476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3AFEFFB2619136F007A1745 /* StudentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfo.swift; sourceTree = "<group>"; };
 		A3AFEFFE261913F6007A1745 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		A3AFF00426194053007A1745 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		A3E259AD2618019500D77F5B /* UdacityApiCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityApiCall.swift; sourceTree = "<group>"; };
 		A3E259B12618023000D77F5B /* RequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHelper.swift; sourceTree = "<group>"; };
 		A3E259B52618058E00D77F5B /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				A3068A1C26169DDF00BC0476 /* AppDelegate.swift */,
 				A3068A2026169DDF00BC0476 /* ViewController.swift */,
 				A3E259C32618D05D00D77F5B /* MapViewController.swift */,
+				A3AFF00426194053007A1745 /* TableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				A3E259B92618077F00D77F5B /* LoginResponse.swift in Sources */,
 				A3068A1D26169DDF00BC0476 /* AppDelegate.swift in Sources */,
 				A3E259C42618D05D00D77F5B /* MapViewController.swift in Sources */,
+				A3AFF00526194053007A1745 /* TableViewController.swift in Sources */,
 				A3E259BF2618129A00D77F5B /* Session.swift in Sources */,
 				A3E259B62618058E00D77F5B /* LoginRequest.swift in Sources */,
 				A3E259B22618023000D77F5B /* RequestHelper.swift in Sources */,
