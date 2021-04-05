@@ -54,7 +54,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
             }
         } else {
-            
+            setIndicator(false)
                 showAlert(message: "Wrong credential.", title: "Login Error")
 
         }

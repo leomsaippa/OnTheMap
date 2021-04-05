@@ -41,6 +41,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        print("isHere")
         let reuseId = "pin"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         if pinView == nil {
@@ -56,6 +57,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("isHere now")
+
         if control == view.rightCalloutAccessoryView {
             if let toOpen = view.annotation?.subtitle {
                 print("open")

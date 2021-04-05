@@ -293,6 +293,9 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mEn-yN-XVq">
                                 <rect key="frame" x="0.0" y="38" width="414" height="824"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="p1e-Bc-4Mb" id="Hxd-Ue-eqI"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kE4-IP-oOb"/>
@@ -370,7 +373,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nz4-BX-y9N"/>
+        <segue reference="yfM-9O-Jof"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icon_addpin" width="24" height="24"/>
