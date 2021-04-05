@@ -58,7 +58,7 @@ class UdacityApiCall: NSObject {
     class func login(email: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
         let body = "{\"udacity\": {\"username\": \"\(email)\", \"password\": \"\(password)\"}}"
         
-        RequestHelper.taskForPOSTRequest(url: Endpoints.udacityLogin.url, responseType: LoginResponse.self, body: body, httpMethod: "POST") { (response, error) in
+        RequestHelper.taskForPOSTRequest(url: Endpoints.udacityLogin.url,isStudentCall: false, responseType: LoginResponse.self, body: body, httpMethod: "POST") { (response, error) in
             if let response = response {
                 Auth.sessionId = response.session.id
                 Auth.key = response.account.key
@@ -125,5 +125,27 @@ class UdacityApiCall: NSObject {
         }
         task.resume()
     }
+    
+    class func addStudentLocation(information: StudentInfo, completion: @escaping (Bool, Error?) -> Void) {
+        let body = "{\"uniqueKey\": \"\(information.uniqueKey ?? "")\", \"firstName\": \"\(information.firstName)\", \"lastName\": \"\(information.lastName)\",\"mapString\": \"\(information.mapString ?? "")\", \"mediaURL\": \"\(information.mediaURL ?? "")\",\"latitude\": \(information.latitude ?? 0.0), \"longitude\": \(information.longitude ?? 0.0)}"
+        RequestHelper.taskForPOSTRequest(url: Endpoints.addLocation.url, isStudentCall: true, responseType: StudentPostResponse.self, body: body, httpMethod: "POST") { (response, error) in
+            if let response = response, response.createdAt != nil {
+                Auth.objectId = response.objectId ?? ""
+                completion(true, nil)
+            }
+            completion(false, error)
+        }
+    }
+    
+    class func updateStudentLocation(information: StudentInfo, completion: @escaping (Bool, Error?) -> Void) {
+        let body = "{\"uniqueKey\": \"\(information.uniqueKey ?? "")\", \"firstName\": \"\(information.firstName)\", \"lastName\": \"\(information.lastName)\",\"mapString\": \"\(information.mapString ?? "")\", \"mediaURL\": \"\(information.mediaURL ?? "")\",\"latitude\": \(information.latitude ?? 0.0), \"longitude\": \(information.longitude ?? 0.0)}"
+        RequestHelper.taskForPOSTRequest(url: Endpoints.updateLocation.url, isStudentCall: true, responseType: UpdateStudantResponse.self, body: body, httpMethod: "PUT") { (response, error) in
+            if let response = response, response.updatedAt != nil {
+                completion(true, nil)
+            }
+            completion(false, error)
+        }
+    }
+
     
 }

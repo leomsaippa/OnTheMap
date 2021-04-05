@@ -209,6 +209,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="4e0-UA-75a">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Nl-dy-QTE">
                                 <rect key="frame" x="0.0" y="78" width="414" height="210"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -240,8 +244,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="iz4-wI-Uya"/>
                     <connections>
+                        <outlet property="indicatorView" destination="4e0-UA-75a" id="dlj-zF-JoD"/>
                         <outlet property="linkTextField" destination="PXM-pf-Hfp" id="Vr4-x3-5US"/>
                         <outlet property="mapView" destination="SvU-bZ-YFt" id="Ihs-q8-DOy"/>
+                        <outlet property="submitButton" destination="sTm-lZ-O1c" id="sdV-Av-cFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUi-NI-WGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

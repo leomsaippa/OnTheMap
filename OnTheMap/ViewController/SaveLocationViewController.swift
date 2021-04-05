@@ -10,7 +10,10 @@ import MapKit
 
 class SaveLocationViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var linkTextField: UITextField!
+    
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -68,6 +71,7 @@ class SaveLocationViewController: UIViewController, UITextFieldDelegate {
             annotation.coordinate = coordinate
             mapView.addAnnotation(annotation)
             mapView.showAnnotations(mapView.annotations, animated: true)
+            addLocationOnApi(studentInfo: studentInfo)
         }
     }
     
@@ -77,5 +81,67 @@ class SaveLocationViewController: UIViewController, UITextFieldDelegate {
         }
         return nil
     }
-
+    
+    func isToShowIndicator(isToShow: Bool) {
+  
+        
+        if isToShow {
+            DispatchQueue.main.async {
+                
+                self.indicatorView.startAnimating()
+                self.isToEnableButton(false, button: self.submitButton)
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.indicatorView.stopAnimating()
+                self.isToEnableButton(true, button: self.submitButton)
+            }
+        }
+        DispatchQueue.main.async {
+            self.submitButton.isEnabled = !isToShow
+        }
+    }
+    
+    private func addLocationOnApi(studentInfo: StudentInfo) {
+            if UdacityApiCall.Auth.objectId == "" {
+                    UdacityApiCall.addStudentLocation(information: studentInfo) { (success, error) in
+                        if success {
+                            DispatchQueue.main.async {
+                                self.isToShowIndicator(isToShow: true)
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                self.showAlert(message: error?.localizedDescription ?? "", title: "Error")
+                                self.isToShowIndicator(isToShow: false)
+                            }
+                        }
+                    }
+            } else {
+                let alertVC = UIAlertController(title: "", message: "This student has already posted a location. Would you like to overwrite this location?", preferredStyle: .alert)
+                alertVC.addAction(UIAlertAction(title: "Overwrite", style: .default, handler: { (action: UIAlertAction) in
+                    UdacityApiCall.updateStudentLocation(information: studentInfo) { (success, error) in
+                        if success {
+                            DispatchQueue.main.async {
+                                self.isToShowIndicator(isToShow: true)
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                self.showAlert(message: error?.localizedDescription ?? "", title: "Error")
+                                self.isToShowIndicator(isToShow: false)
+                            }
+                        }
+                    }
+                }))
+                alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction) in
+                    DispatchQueue.main.async {
+                        self.isToShowIndicator(isToShow: false)
+                        alertVC.dismiss(animated: true, completion: nil)
+                    }
+                }))
+                self.present(alertVC, animated: true)
+            }
+        }
+    
 }
