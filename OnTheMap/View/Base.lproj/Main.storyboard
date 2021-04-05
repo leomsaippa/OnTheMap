@@ -36,10 +36,9 @@
                                     <action selector="onLoginBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vxp-on-cRk"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Don`t have an account?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7A8-4e-3Pc">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Don`t have an account?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7A8-4e-3Pc">
                                 <rect key="frame" x="110" y="527" width="171" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -56,6 +55,9 @@
                                 <rect key="frame" x="122" y="569" width="147" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <action selector="signUpBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iz8-Qd-7QY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -66,7 +68,7 @@
                         <outlet property="indicatorView" destination="GFj-E2-y0b" id="069-gJ-Q18"/>
                         <outlet property="loginButton" destination="gty-qB-oNP" id="Rwt-Vt-Kho"/>
                         <outlet property="passwordField" destination="4j3-Cq-bap" id="4RV-oZ-oG1"/>
-                        <outlet property="signUpButton" destination="1dM-6V-hrP" id="UgM-cs-dEk"/>
+                        <outlet property="signUpButton" destination="1dM-6V-hrP" id="1sW-SM-Suu"/>
                         <segue destination="IKK-Kp-aeT" kind="show" identifier="loginClick" id="dVf-kL-s1o"/>
                     </connections>
                 </viewController>

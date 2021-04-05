@@ -15,9 +15,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
+    let signUpUrl = UdacityApiCall.Endpoints.udacitySignUp.url
+    
     var emailFieldIsEmpty = true
     var passwordFieldIsEmpty = true
     
+    @IBAction func signUpBtnClicked(_ sender: Any) {
+        setIndicator(true)
+        UIApplication.shared.open(signUpUrl, options: [:], completionHandler: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         emailField.text = ""
@@ -37,8 +43,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onLoginBtnClicked(_ sender: Any) {
         setIndicator(true)
         UdacityApiCall.login(email: self.emailField.text ?? "", password: self.passwordField.text ?? "", completion: handleLoginResponse(success:error:))
-
-  
     }
     
     func handleLoginResponse(success: Bool, error: Error?) {
