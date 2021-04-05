@@ -44,15 +44,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         getInfo()
-        
-        
+        let annotation = MKPointAnnotation()
         if(currentCoordinate != nil){
-            mapView.centerCoordinate = currentCoordinate!
-            
+            annotation.coordinate = currentCoordinate!
+            mapView.addAnnotation(annotation)
+            mapView.showAnnotations(mapView.annotations, animated: true)
         } else{
-            print("Cannot find location")
+            print("Error while setting")
         }
-        
         
     }
     
