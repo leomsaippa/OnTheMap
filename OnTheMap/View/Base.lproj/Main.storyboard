@@ -156,14 +156,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Where are you studying today?" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WtO-jx-e7q">
-                                <rect key="frame" x="20" y="145" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="twU-K3-xRH">
-                                <rect key="frame" x="20" y="363" width="394" height="34"/>
+                                <rect key="frame" x="10" y="214" width="394" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -172,22 +166,25 @@
                                 <rect key="frame" x="197" y="411" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bR-Lt-oxn">
-                                <rect key="frame" x="87" y="606" width="235" height="30"/>
-                                <state key="normal" title="Find on the Map"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9d-XG-mvb">
+                                <rect key="frame" x="150" y="277" width="115" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Find on The Map"/>
                                 <connections>
-                                    <action selector="findOnTheMap:" destination="fTY-TA-clf" eventType="touchUpInside" id="DC2-Up-MlM"/>
-                                    <action selector="findOnTheMap:" destination="Ufi-Xs-jSj" eventType="touchUpInside" id="Xtk-Zz-cHg"/>
+                                    <action selector="findOnTheMap:" destination="Ufi-Xs-jSj" eventType="touchUpInside" id="pZM-xe-qUK"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Where are you studying today?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sd0-QN-j8O">
+                                <rect key="frame" x="98" y="138" width="218" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tGj-Sn-x7J"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="tGj-Sn-x7J" firstAttribute="bottom" secondItem="8bR-Lt-oxn" secondAttribute="bottom" constant="172" id="OIG-lQ-LIM"/>
-                            <constraint firstItem="8bR-Lt-oxn" firstAttribute="leading" secondItem="tGj-Sn-x7J" secondAttribute="leading" constant="87" id="VDR-Lv-y3x"/>
-                            <constraint firstItem="tGj-Sn-x7J" firstAttribute="trailing" secondItem="8bR-Lt-oxn" secondAttribute="trailing" constant="92" id="uYT-yA-esq"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="daN-nh-hNA">
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="IcQ-KB-rbj">
@@ -197,13 +194,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="findOnTheMapButton" destination="8bR-Lt-oxn" id="Sur-u2-T94"/>
+                        <outlet property="findOnTheMapButton" destination="M9d-XG-mvb" id="vzR-jo-1B6"/>
                         <outlet property="indicatorView" destination="ps3-Vm-7aS" id="Ttt-8P-ZRo"/>
                         <outlet property="locationTextField" destination="twU-K3-xRH" id="Hnn-8q-NTd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bke-iK-UdC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="fTY-TA-clf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4837.68115942029" y="-22.098214285714285"/>
         </scene>

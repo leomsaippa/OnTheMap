@@ -44,15 +44,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         getInfo()
-        
-        
+        let annotation = MKPointAnnotation()
         if(currentCoordinate != nil){
-            mapView.centerCoordinate = currentCoordinate!
-            
+            annotation.coordinate = currentCoordinate!
+            mapView.addAnnotation(annotation)
+            mapView.showAnnotations(mapView.annotations, animated: true)
         } else{
-            print("Cannot find location")
+            print("Error while setting")
         }
-        
         
     }
     
@@ -89,36 +88,35 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         indicatorView.startAnimating()
         print("calling getInfo")
         UdacityApiCall.getStudentLocations() { locations, error in
-            self.mapView.removeAnnotations(self.annotations)
-            self.annotations.removeAll()
-            self.location = locations ?? []
-            for dictionary in locations ?? [] {
-                let lat = CLLocationDegrees(dictionary.latitude ?? 0.0)
-                let long = CLLocationDegrees(dictionary.longitude ?? 0.0)
-                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                self.currentCoordinate = coordinate
-                let first = dictionary.firstName
-                let last = dictionary.lastName
-                let mediaURL = dictionary.mediaURL
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                annotation.title = "\(first) \(last)"
-                annotation.subtitle = mediaURL
-                self.annotations.append(annotation)
-            }
-
-            if locations != nil {
+            
+            if(error != nil){
                 DispatchQueue.main.async {
-                    self.mapView.addAnnotations(self.annotations)
-                    self.indicatorView.stopAnimating()
+                self.showAlert(message: "Fail to get students informations.", title: "Error")
+                self.indicatorView.stopAnimating()
                 }
-            }
-            else {
-                DispatchQueue.main.async {
-                    self.showAlert(message: "Fail to get students informationd.", title: "Error")
-                    self.indicatorView.stopAnimating()
+              
+            } else {
+                self.mapView.removeAnnotations(self.annotations)
+                self.annotations.removeAll()
+                self.location = locations ?? []
+                for dictionary in locations ?? [] {
+                    let lat = CLLocationDegrees(dictionary.latitude ?? 0.0)
+                    let long = CLLocationDegrees(dictionary.longitude ?? 0.0)
+                    let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                    self.currentCoordinate = coordinate
+                    let first = dictionary.firstName
+                    let last = dictionary.lastName
+                    let mediaURL = dictionary.mediaURL
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = coordinate
+                    annotation.title = "\(first) \(last)"
+                    annotation.subtitle = mediaURL
+                    self.annotations.append(annotation)
+                    DispatchQueue.main.async {
+                        self.mapView.addAnnotations(self.annotations)
+                        self.indicatorView.stopAnimating()
+                    }
                 }
-                    
             }
         }
     }

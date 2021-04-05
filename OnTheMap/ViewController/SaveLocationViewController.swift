@@ -118,15 +118,15 @@ class SaveLocationViewController: UIViewController, UITextFieldDelegate {
                     UdacityApiCall.addStudentLocation(information: studentInfo) { (success, error) in
                         if success {
                             DispatchQueue.main.async {
-                                self.isToShowIndicator(isToShow: true)
-                                self.dismiss(animated: true, completion: nil)
+                                self.isToShowIndicator(isToShow: false)
                             }
                         } else {
                             DispatchQueue.main.async {
-                                self.showAlert(message: error?.localizedDescription ?? "", title: "Error")
+                                print("Something went wrong")
                                 self.isToShowIndicator(isToShow: false)
                             }
                         }
+                        
                     }
             } else {
                 let alertVC = UIAlertController(title: "", message: "This student has already posted a location. Would you like to overwrite this location?", preferredStyle: .alert)
