@@ -36,10 +36,9 @@
                                     <action selector="onLoginBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vxp-on-cRk"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Don`t have an account?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7A8-4e-3Pc">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Don`t have an account?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7A8-4e-3Pc">
                                 <rect key="frame" x="110" y="527" width="171" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -48,10 +47,17 @@
                                 <rect key="frame" x="135" y="195" width="121" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="GFj-E2-y0b">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dM-6V-hrP">
                                 <rect key="frame" x="122" y="569" width="147" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <action selector="signUpBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iz8-Qd-7QY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -59,9 +65,10 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="Onm-gm-mhz" id="9l4-Rq-ddL"/>
+                        <outlet property="indicatorView" destination="GFj-E2-y0b" id="069-gJ-Q18"/>
                         <outlet property="loginButton" destination="gty-qB-oNP" id="Rwt-Vt-Kho"/>
                         <outlet property="passwordField" destination="4j3-Cq-bap" id="4RV-oZ-oG1"/>
-                        <outlet property="signUpButton" destination="1dM-6V-hrP" id="UgM-cs-dEk"/>
+                        <outlet property="signUpButton" destination="1dM-6V-hrP" id="1sW-SM-Suu"/>
                         <segue destination="IKK-Kp-aeT" kind="show" identifier="loginClick" id="dVf-kL-s1o"/>
                     </connections>
                 </viewController>
@@ -77,6 +84,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="qAS-eh-IS4">
+                            <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentTableViewCell" id="gio-S9-Vrd">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -99,7 +110,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="icon_refresh" id="Aeb-FX-f9Y"/>
+                            <barButtonItem image="icon_refresh" id="Aeb-FX-f9Y">
+                                <connections>
+                                    <action selector="refreshList:" destination="fBt-rf-S3u" id="9Zz-SB-QIN"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="icon_pin" id="OW9-um-Re7">
                                 <connections>
                                     <segue destination="NkU-NO-9Z3" kind="presentation" id="nz4-BX-y9N"/>
@@ -107,6 +122,10 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="indicatorView" destination="qAS-eh-IS4" id="uD8-xZ-XLB"/>
+                        <outlet property="studentTableView" destination="G1i-5D-tGI" id="b7R-ok-pr5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BA9-Wb-TBw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,9 +168,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bR-Lt-oxn">
-                                <rect key="frame" x="87" y="606" width="235" height="30"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ps3-Vm-7aS">
+                                <rect key="frame" x="197" y="411" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bR-Lt-oxn">
+                                <rect key="frame" x="87" y="606" width="235" height="30"/>
                                 <state key="normal" title="Find on the Map"/>
                                 <connections>
                                     <action selector="findOnTheMap:" destination="fTY-TA-clf" eventType="touchUpInside" id="DC2-Up-MlM"/>
@@ -161,11 +183,22 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tGj-Sn-x7J"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tGj-Sn-x7J" firstAttribute="bottom" secondItem="8bR-Lt-oxn" secondAttribute="bottom" constant="172" id="OIG-lQ-LIM"/>
+                            <constraint firstItem="8bR-Lt-oxn" firstAttribute="leading" secondItem="tGj-Sn-x7J" secondAttribute="leading" constant="87" id="VDR-Lv-y3x"/>
+                            <constraint firstItem="tGj-Sn-x7J" firstAttribute="trailing" secondItem="8bR-Lt-oxn" secondAttribute="trailing" constant="92" id="uYT-yA-esq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="daN-nh-hNA">
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="IcQ-KB-rbj"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="IcQ-KB-rbj">
+                            <connections>
+                                <action selector="cancel:" destination="Ufi-Xs-jSj" id="lfw-eh-Uj9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="findOnTheMapButton" destination="8bR-Lt-oxn" id="Sur-u2-T94"/>
+                        <outlet property="indicatorView" destination="ps3-Vm-7aS" id="Ttt-8P-ZRo"/>
                         <outlet property="locationTextField" destination="twU-K3-xRH" id="Hnn-8q-NTd"/>
                     </connections>
                 </viewController>
@@ -182,6 +215,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="4e0-UA-75a">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Nl-dy-QTE">
                                 <rect key="frame" x="0.0" y="78" width="414" height="210"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -213,19 +250,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="iz4-wI-Uya"/>
                     <connections>
+                        <outlet property="indicatorView" destination="4e0-UA-75a" id="dlj-zF-JoD"/>
                         <outlet property="linkTextField" destination="PXM-pf-Hfp" id="Vr4-x3-5US"/>
                         <outlet property="mapView" destination="SvU-bZ-YFt" id="Ihs-q8-DOy"/>
+                        <outlet property="submitButton" destination="sTm-lZ-O1c" id="sdV-Av-cFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUi-NI-WGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5650.7246376811599" y="-1.3392857142857142"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="ehW-nh-iho">
             <objects>
                 <navigationController id="liW-E6-GAm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0df-bM-hd8"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_mapview-deselected" id="0df-bM-hd8"/>
                     <navigationItem key="navigationItem" id="Dfe-A9-JDF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jhd-of-yLR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -247,9 +286,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="qJe-cg-Q87">
+                                <rect key="frame" x="197" y="411" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mEn-yN-XVq">
                                 <rect key="frame" x="0.0" y="38" width="414" height="824"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="p1e-Bc-4Mb" id="Hxd-Ue-eqI"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kE4-IP-oOb"/>
@@ -262,7 +308,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="icon_refresh" id="Awx-Kp-khh"/>
+                            <barButtonItem image="icon_refresh" id="Awx-Kp-khh">
+                                <connections>
+                                    <action selector="refreshMap:" destination="p1e-Bc-4Mb" id="yn4-bc-DFM"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="icon_pin" id="PKH-AU-y08">
                                 <connections>
                                     <segue destination="NkU-NO-9Z3" kind="presentation" id="yfM-9O-Jof"/>
@@ -271,6 +321,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="indicatorView" destination="qJe-cg-Q87" id="cQn-tY-n9P"/>
                         <outlet property="mapView" destination="mEn-yN-XVq" id="td8-4U-NI0"/>
                     </connections>
                 </viewController>
@@ -278,11 +329,11 @@
             </objects>
             <point key="canvasLocation" x="3137.68115942029" y="300.66964285714283"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="1GC-UK-dby">
             <objects>
                 <navigationController id="GYI-dv-b2G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xYX-lj-Cky"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_listview-deselected" id="xYX-lj-Cky"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6oF-oH-hOP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -312,8 +363,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="GYI-dv-b2G" kind="relationship" relationship="viewControllers" id="X9K-rp-pKw"/>
                         <segue destination="liW-E6-GAm" kind="relationship" relationship="viewControllers" id="hp1-Ay-bYF"/>
+                        <segue destination="GYI-dv-b2G" kind="relationship" relationship="viewControllers" id="0Et-T2-MHA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rq-6s-0eq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -322,10 +373,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nz4-BX-y9N"/>
+        <segue reference="yfM-9O-Jof"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icon_addpin" width="24" height="24"/>
+        <image name="icon_listview-deselected" width="75" height="50"/>
+        <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_pin" width="24" height="24"/>
         <image name="icon_refresh" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>

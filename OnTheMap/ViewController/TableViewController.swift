@@ -10,12 +10,21 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var studentTableView: UITableView!
 
+    @IBAction func refreshList(_ sender: UIBarButtonItem) {
+        print("call refresh list")
+
+        getStudentsList()
+    }
+    
     var students = [StudentInfo]()
     
     
     override func viewDidLoad() {
+        isToShowIndicator(isToShow: true)
         super.viewDidLoad()
     }
     
@@ -25,9 +34,11 @@ class TableViewController: UITableViewController {
     }
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
+        isToShowIndicator(isToShow: true)
         UdacityApiCall.logout {
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
+                self.isToShowIndicator(isToShow: false)
             }
         }
     }
@@ -55,11 +66,23 @@ class TableViewController: UITableViewController {
     
     func getStudentsList() {
         print("getStudentsList")
+        isToShowIndicator(isToShow: true)
         UdacityApiCall.getStudentLocations() {students, error in
             self.students = students ?? []
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.isToShowIndicator(isToShow: false)
+
             }
+        }
+    }
+    
+    func isToShowIndicator(isToShow: Bool) {
+        indicatorView.isHidden = !isToShow
+        if isToShow {
+            indicatorView.startAnimating()
+        } else{
+            indicatorView.stopAnimating()
         }
     }
 }

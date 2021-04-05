@@ -18,6 +18,8 @@
 		A3AFF00926195235007A1745 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFF00826195235007A1745 /* ViewExtension.swift */; };
 		A3AFF010261A0AA3007A1745 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFF00F261A0AA3007A1745 /* AddLocationViewController.swift */; };
 		A3AFF013261A3126007A1745 /* SaveLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFF012261A3126007A1745 /* SaveLocationViewController.swift */; };
+		A3BD0ED5261ABEE800251748 /* StudentPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0ED4261ABEE800251748 /* StudentPostResponse.swift */; };
+		A3BD0ED8261AC00300251748 /* UpdateStudentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BD0ED7261AC00300251748 /* UpdateStudentResponse.swift */; };
 		A3E259AE2618019500D77F5B /* UdacityApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E259AD2618019500D77F5B /* UdacityApiCall.swift */; };
 		A3E259B22618023000D77F5B /* RequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E259B12618023000D77F5B /* RequestHelper.swift */; };
 		A3E259B62618058E00D77F5B /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E259B52618058E00D77F5B /* LoginRequest.swift */; };
@@ -41,6 +43,8 @@
 		A3AFF00826195235007A1745 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		A3AFF00F261A0AA3007A1745 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		A3AFF012261A3126007A1745 /* SaveLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationViewController.swift; sourceTree = "<group>"; };
+		A3BD0ED4261ABEE800251748 /* StudentPostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentPostResponse.swift; sourceTree = "<group>"; };
+		A3BD0ED7261AC00300251748 /* UpdateStudentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStudentResponse.swift; sourceTree = "<group>"; };
 		A3E259AD2618019500D77F5B /* UdacityApiCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityApiCall.swift; sourceTree = "<group>"; };
 		A3E259B12618023000D77F5B /* RequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHelper.swift; sourceTree = "<group>"; };
 		A3E259B52618058E00D77F5B /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				A3E259BE2618129A00D77F5B /* Session.swift */,
 				A3AFEFFB2619136F007A1745 /* StudentInfo.swift */,
 				A3AFEFFE261913F6007A1745 /* StudentLocation.swift */,
+				A3BD0ED4261ABEE800251748 /* StudentPostResponse.swift */,
+				A3BD0ED7261AC00300251748 /* UpdateStudentResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3BD0ED5261ABEE800251748 /* StudentPostResponse.swift in Sources */,
 				A3E259AE2618019500D77F5B /* UdacityApiCall.swift in Sources */,
 				A3AFEFFF261913F6007A1745 /* StudentLocation.swift in Sources */,
 				A3AFEFFC2619136F007A1745 /* StudentInfo.swift in Sources */,
@@ -218,6 +225,7 @@
 				A3E259B62618058E00D77F5B /* LoginRequest.swift in Sources */,
 				A3E259B22618023000D77F5B /* RequestHelper.swift in Sources */,
 				A3E259BC261807FD00D77F5B /* User.swift in Sources */,
+				A3BD0ED8261AC00300251748 /* UpdateStudentResponse.swift in Sources */,
 				A3AFF013261A3126007A1745 /* SaveLocationViewController.swift in Sources */,
 				A3AFF00926195235007A1745 /* ViewExtension.swift in Sources */,
 			);

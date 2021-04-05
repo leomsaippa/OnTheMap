@@ -12,24 +12,36 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
 
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
     var location = [StudentInfo]()
     var annotations = [MKPointAnnotation]()
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        print("viewDidAppear")
+
+    @IBAction func refreshMap(_ sender: UIBarButtonItem) {
+        print("call refresh map")
         getInfo()
     }
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
+        self.indicatorView.startAnimating()
         UdacityApiCall.logout {
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
+                self.indicatorView.stopAnimating()
+
             }
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        getInfo()
+
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        print("isHere")
         let reuseId = "pin"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         if pinView == nil {
@@ -45,6 +57,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("isHere now")
+
         if control == view.rightCalloutAccessoryView {
             if let toOpen = view.annotation?.subtitle {
                 print("open")
@@ -56,6 +70,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     
     func getInfo() {
+        indicatorView.startAnimating()
         print("calling getInfo")
         UdacityApiCall.getStudentLocations() { locations, error in
             self.mapView.removeAnnotations(self.annotations)
@@ -76,7 +91,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
             DispatchQueue.main.async {
                 self.mapView.addAnnotations(self.annotations)
-               
+                self.indicatorView.stopAnimating()
+
+            
             }
         }
     }
