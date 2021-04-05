@@ -19,13 +19,14 @@ class TableViewController: UITableViewController {
 
         getStudentsList()
     }
-    
-    var students = [StudentInfo]()
-    
-    
+
+    var students = DataManager.shared.locations
+
     override func viewDidLoad() {
-        isToShowIndicator(isToShow: true)
         super.viewDidLoad()
+        isToShowIndicator(isToShow: true)
+        self.hideKeyboardWhenTappedAround()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {

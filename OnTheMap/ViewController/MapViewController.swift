@@ -14,8 +14,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
-    var location = [StudentInfo]()
+    var location = DataManager.shared.locations
     var annotations = [MKPointAnnotation]()
+    var currentCoordinate: CLLocationCoordinate2D?
+
 
 
     @IBAction func refreshMap(_ sender: UIBarButtonItem) {
@@ -34,10 +36,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+
+    }
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         getInfo()
-
+        
+        
+        if(currentCoordinate != nil){
+            mapView.centerCoordinate = currentCoordinate!
+            
+        } else{
+            print("Cannot find location")
+        }
+        
+        
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -80,6 +96,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 let lat = CLLocationDegrees(dictionary.latitude ?? 0.0)
                 let long = CLLocationDegrees(dictionary.longitude ?? 0.0)
                 let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                self.currentCoordinate = coordinate
                 let first = dictionary.firstName
                 let last = dictionary.lastName
                 let mediaURL = dictionary.mediaURL
@@ -89,11 +106,19 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 annotation.subtitle = mediaURL
                 self.annotations.append(annotation)
             }
-            DispatchQueue.main.async {
-                self.mapView.addAnnotations(self.annotations)
-                self.indicatorView.stopAnimating()
 
-            
+            if locations != nil {
+                DispatchQueue.main.async {
+                    self.mapView.addAnnotations(self.annotations)
+                    self.indicatorView.stopAnimating()
+                }
+            }
+            else {
+                DispatchQueue.main.async {
+                    self.showAlert(message: "Fail to get students informationd.", title: "Error")
+                    self.indicatorView.stopAnimating()
+                }
+                    
             }
         }
     }

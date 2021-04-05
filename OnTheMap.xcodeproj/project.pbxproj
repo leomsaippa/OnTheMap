@@ -27,6 +27,7 @@
 		A3E259BC261807FD00D77F5B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E259BB261807FD00D77F5B /* User.swift */; };
 		A3E259BF2618129A00D77F5B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E259BE2618129A00D77F5B /* Session.swift */; };
 		A3E259C42618D05D00D77F5B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E259C32618D05D00D77F5B /* MapViewController.swift */; };
+		A3FC4049261B31F4004B5091 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FC4048261B31F4004B5091 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		A3E259BB261807FD00D77F5B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A3E259BE2618129A00D77F5B /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A3E259C32618D05D00D77F5B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A3FC4048261B31F4004B5091 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				A3AFEFFE261913F6007A1745 /* StudentLocation.swift */,
 				A3BD0ED4261ABEE800251748 /* StudentPostResponse.swift */,
 				A3BD0ED7261AC00300251748 /* UpdateStudentResponse.swift */,
+				A3FC4048261B31F4004B5091 /* DataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				A3AFF010261A0AA3007A1745 /* AddLocationViewController.swift in Sources */,
 				A3068A2126169DDF00BC0476 /* ViewController.swift in Sources */,
 				A3E259B92618077F00D77F5B /* LoginResponse.swift in Sources */,
+				A3FC4049261B31F4004B5091 /* DataManager.swift in Sources */,
 				A3068A1D26169DDF00BC0476 /* AppDelegate.swift in Sources */,
 				A3E259C42618D05D00D77F5B /* MapViewController.swift in Sources */,
 				A3AFF00526194053007A1745 /* TableViewController.swift in Sources */,

@@ -23,6 +23,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         isToShowIndicator(isToShow: false)
         locationTextField.delegate = self
         isToEnableButton(false, button: findOnTheMapButton)
+        self.hideKeyboardWhenTappedAround()
     
         
     }

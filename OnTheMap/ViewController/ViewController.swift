@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         emailField.delegate = self
         passwordField.delegate = self
         isToEnableButton(false, button: loginButton)
-
+        self.hideKeyboardWhenTappedAround()
     }
 
 

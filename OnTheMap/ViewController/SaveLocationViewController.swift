@@ -24,6 +24,17 @@ class SaveLocationViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Location \(location!)")
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if(location != nil){
+            mapView.centerCoordinate = location!.coordinate
+            
+        } else{
+            print("Cannot find location")
+        }
+
     }
     
     @IBAction func onSubmitClicked(_ sender: Any) {
