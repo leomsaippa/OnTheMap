@@ -258,11 +258,11 @@
             </objects>
             <point key="canvasLocation" x="5650.7246376811599" y="-1.3392857142857142"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="ehW-nh-iho">
             <objects>
                 <navigationController id="liW-E6-GAm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0df-bM-hd8"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_mapview-deselected" id="0df-bM-hd8"/>
                     <navigationItem key="navigationItem" id="Dfe-A9-JDF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jhd-of-yLR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -324,11 +324,11 @@
             </objects>
             <point key="canvasLocation" x="3137.68115942029" y="300.66964285714283"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="1GC-UK-dby">
             <objects>
                 <navigationController id="GYI-dv-b2G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xYX-lj-Cky"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_listview-deselected" id="xYX-lj-Cky"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6oF-oH-hOP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -372,6 +372,8 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icon_addpin" width="24" height="24"/>
+        <image name="icon_listview-deselected" width="75" height="50"/>
+        <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_pin" width="24" height="24"/>
         <image name="icon_refresh" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
