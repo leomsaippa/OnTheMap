@@ -14,6 +14,12 @@ class TableViewController: UITableViewController {
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var studentTableView: UITableView!
 
+    @IBAction func refreshList(_ sender: UIBarButtonItem) {
+        print("call refresh list")
+
+        getStudentsList()
+    }
+    
     var students = [StudentInfo]()
     
     

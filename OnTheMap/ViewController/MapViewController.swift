@@ -17,9 +17,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     var location = [StudentInfo]()
     var annotations = [MKPointAnnotation]()
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        print("viewDidAppear")
+
+    @IBAction func refreshMap(_ sender: UIBarButtonItem) {
+        print("call refresh map")
         getInfo()
     }
     
@@ -32,6 +32,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        getInfo()
+
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
