@@ -288,6 +288,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="indicatorView" destination="qJe-cg-Q87" id="cQn-tY-n9P"/>
                         <outlet property="mapView" destination="mEn-yN-XVq" id="td8-4U-NI0"/>
                     </connections>
                 </viewController>

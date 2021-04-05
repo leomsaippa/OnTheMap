@@ -12,6 +12,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
 
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
     var location = [StudentInfo]()
     var annotations = [MKPointAnnotation]()
 
@@ -22,9 +24,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
+        self.indicatorView.startAnimating()
         UdacityApiCall.logout {
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
+                self.indicatorView.stopAnimating()
+
             }
         }
     }
@@ -56,6 +61,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     
     func getInfo() {
+        indicatorView.startAnimating()
         print("calling getInfo")
         UdacityApiCall.getStudentLocations() { locations, error in
             self.mapView.removeAnnotations(self.annotations)
@@ -76,7 +82,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
             DispatchQueue.main.async {
                 self.mapView.addAnnotations(self.annotations)
-               
+                self.indicatorView.stopAnimating()
+
+            
             }
         }
     }
