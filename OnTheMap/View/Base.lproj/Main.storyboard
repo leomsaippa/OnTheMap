@@ -108,7 +108,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="icon_refresh" id="Aeb-FX-f9Y"/>
+                            <barButtonItem image="icon_refresh" id="Aeb-FX-f9Y">
+                                <connections>
+                                    <action selector="refreshList:" destination="fBt-rf-S3u" id="9Zz-SB-QIN"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="icon_pin" id="OW9-um-Re7">
                                 <connections>
                                     <segue destination="NkU-NO-9Z3" kind="presentation" id="nz4-BX-y9N"/>
@@ -299,7 +303,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="icon_refresh" id="Awx-Kp-khh"/>
+                            <barButtonItem image="icon_refresh" id="Awx-Kp-khh">
+                                <connections>
+                                    <action selector="refreshMap:" destination="p1e-Bc-4Mb" id="yn4-bc-DFM"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="icon_pin" id="PKH-AU-y08">
                                 <connections>
                                     <segue destination="NkU-NO-9Z3" kind="presentation" id="yfM-9O-Jof"/>
@@ -350,8 +358,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="GYI-dv-b2G" kind="relationship" relationship="viewControllers" id="X9K-rp-pKw"/>
                         <segue destination="liW-E6-GAm" kind="relationship" relationship="viewControllers" id="hp1-Ay-bYF"/>
+                        <segue destination="GYI-dv-b2G" kind="relationship" relationship="viewControllers" id="0Et-T2-MHA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rq-6s-0eq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
