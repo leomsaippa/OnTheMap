@@ -162,7 +162,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ps3-Vm-7aS">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ps3-Vm-7aS">
                                 <rect key="frame" x="197" y="411" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
@@ -184,9 +184,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="daN-nh-hNA">
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="IcQ-KB-rbj"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="IcQ-KB-rbj">
+                            <connections>
+                                <action selector="cancel:" destination="Ufi-Xs-jSj" id="lfw-eh-Uj9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="findOnTheMapButton" destination="8bR-Lt-oxn" id="Sur-u2-T94"/>
+                        <outlet property="indicatorView" destination="ps3-Vm-7aS" id="Ttt-8P-ZRo"/>
                         <outlet property="locationTextField" destination="twU-K3-xRH" id="Hnn-8q-NTd"/>
                     </connections>
                 </viewController>
