@@ -117,7 +117,7 @@
                             </barButtonItem>
                             <barButtonItem image="icon_pin" id="OW9-um-Re7">
                                 <connections>
-                                    <segue destination="NkU-NO-9Z3" kind="presentation" id="nz4-BX-y9N"/>
+                                    <action selector="addOnMap:" destination="fBt-rf-S3u" id="MDb-hQ-AsW"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -137,7 +137,7 @@
                 <navigationController id="NkU-NO-9Z3" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="efR-8h-I38"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vmG-Sq-fB2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -151,9 +151,9 @@
         <!--Add Location View Controller-->
         <scene sceneID="T5r-Sg-TQ0">
             <objects>
-                <viewController id="Ufi-Xs-jSj" customClass="AddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddLocationViewController" id="Ufi-Xs-jSj" customClass="AddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nTj-8u-dnK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="twU-K3-xRH">
@@ -277,7 +277,7 @@
         <!--Map View Controller-->
         <scene sceneID="AKf-7s-G9x">
             <objects>
-                <viewController id="p1e-Bc-4Mb" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="p1e-Bc-4Mb" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="74K-tc-GD8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -311,7 +311,7 @@
                             </barButtonItem>
                             <barButtonItem image="icon_pin" id="PKH-AU-y08">
                                 <connections>
-                                    <segue destination="NkU-NO-9Z3" kind="presentation" id="yfM-9O-Jof"/>
+                                    <action selector="addOnMap:" destination="p1e-Bc-4Mb" id="AYx-Tt-oYh"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -345,7 +345,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="UJa-ex-SNZ">
             <objects>
-                <tabBarController id="IKK-Kp-aeT" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="IKK-Kp-aeT" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="rDC-l3-ZWU">
                         <rightBarButtonItems>
                             <barButtonItem image="icon_refresh" id="nV3-6K-ESr"/>
@@ -368,9 +368,6 @@
             <point key="canvasLocation" x="666" y="35"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="yfM-9O-Jof"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="icon_addpin" width="24" height="24"/>
         <image name="icon_listview-deselected" width="75" height="50"/>

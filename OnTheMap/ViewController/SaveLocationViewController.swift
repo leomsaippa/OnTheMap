@@ -27,12 +27,24 @@ class SaveLocationViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboardWhenTappedAround()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    //MARK: Fix to show after view load map zoom animation
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if(location != nil){
-            mapView.centerCoordinate = location!.coordinate
+            print("setting")
+            if let coordinate = extractCoordinate(latitude: location?.coordinate.latitude, longitude: location?.coordinate.longitude) {
+                let annotation = MKPointAnnotation()
+                annotation.title = ""
+                annotation.subtitle = ""
+                annotation.coordinate = coordinate
+                mapView.addAnnotation(annotation)
+                mapView.showAnnotations(mapView.annotations, animated: true)
+                //Zoom to 400/400
+                mapView.setRegion(MKCoordinateRegion(center: coordinate, latitudinalMeters: 400, longitudinalMeters: 400), animated: true)
+            }
             
         } else{
-            print("Cannot find location")
+            print("Location nil")
         }
 
     }
@@ -43,9 +55,8 @@ class SaveLocationViewController: UIViewController, UITextFieldDelegate {
             return
         }
         if(location != nil){
-        
             let studentInfo = buildStudentInfo(location!.coordinate)
-            addLocationToMap(studentInfo: studentInfo)
+            addLocationOnApi(studentInfo: studentInfo)
         } else{
             print("Location nil")
         }
@@ -74,20 +85,8 @@ class SaveLocationViewController: UIViewController, UITextFieldDelegate {
 
     }
     
-    private func addLocationToMap(studentInfo: StudentInfo) {
-        if let coordinate = extractCoordinate(studentInfo: studentInfo) {
-            let annotation = MKPointAnnotation()
-            annotation.title = studentInfo.labelName
-            annotation.subtitle = studentInfo.mediaURL ?? ""
-            annotation.coordinate = coordinate
-            mapView.addAnnotation(annotation)
-            mapView.showAnnotations(mapView.annotations, animated: true)
-            addLocationOnApi(studentInfo: studentInfo)
-        }
-    }
-    
-    private func extractCoordinate(studentInfo: StudentInfo) -> CLLocationCoordinate2D? {
-        if let lat = studentInfo.latitude, let lon = studentInfo.longitude {
+    private func extractCoordinate(latitude: Double?, longitude: Double?) -> CLLocationCoordinate2D? {
+        if let lat = latitude, let lon = longitude {
             return CLLocationCoordinate2DMake(lat, lon)
         }
         return nil
@@ -119,10 +118,11 @@ class SaveLocationViewController: UIViewController, UITextFieldDelegate {
                         if success {
                             DispatchQueue.main.async {
                                 self.isToShowIndicator(isToShow: false)
+                                self.showMapViewController()
                             }
                         } else {
                             DispatchQueue.main.async {
-                                print("Something went wrong")
+                                self.showAlert(message: error?.localizedDescription ?? "Something went wrong", title: "Something went wrong")
                                 self.isToShowIndicator(isToShow: false)
                             }
                         }
@@ -135,7 +135,7 @@ class SaveLocationViewController: UIViewController, UITextFieldDelegate {
                         if success {
                             DispatchQueue.main.async {
                                 self.isToShowIndicator(isToShow: true)
-                                self.dismiss(animated: true, completion: nil)
+                                self.showMapViewController()
                             }
                         } else {
                             DispatchQueue.main.async {
@@ -155,4 +155,8 @@ class SaveLocationViewController: UIViewController, UITextFieldDelegate {
             }
         }
     
+    
+    func showMapViewController() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }
