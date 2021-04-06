@@ -34,6 +34,12 @@ class TableViewController: UITableViewController {
         getStudentsList()
     }
     
+    @IBAction func addOnMap(_ sender: Any) {
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+    }
+    
     @IBAction func logout(_ sender: UIBarButtonItem) {
         isToShowIndicator(isToShow: true)
         UdacityApiCall.logout {

@@ -36,27 +36,23 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    @IBAction func addOnMap(_ sender: Any) {
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
 
     }
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         getInfo()
-        let annotation = MKPointAnnotation()
-        if(currentCoordinate != nil){
-            annotation.coordinate = currentCoordinate!
-            mapView.addAnnotation(annotation)
-            mapView.showAnnotations(mapView.annotations, animated: true)
-        } else{
-            print("Error while setting")
-        }
-        
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        print("isHere")
         let reuseId = "pin"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         if pinView == nil {
@@ -72,8 +68,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        print("isHere now")
-
         if control == view.rightCalloutAccessoryView {
             if let toOpen = view.annotation?.subtitle {
                 print("open")
@@ -119,6 +113,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 }
             }
         }
+    }
+    
+    @objc func willEnterForeground() {
+        print("willEnterForegroun")
+        getInfo()
     }
 
 }
