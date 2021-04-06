@@ -132,8 +132,9 @@ class UdacityApiCall: NSObject {
             if let response = response, response.createdAt != nil {
                 Auth.objectId = response.objectId ?? ""
                 completion(true, nil)
+            } else {
+                completion(false, error)
             }
-            completion(false, error)
         }
     }
     
